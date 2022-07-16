@@ -1,0 +1,43 @@
+@import '../../sass/mixins.scss';
+
+.content {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  flex: 1;
+
+  &.top {
+    width: 100%;
+    display: flex;
+    @include respond('phone') {
+      flex-direction: column;
+    }
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.6rem;
+    gap: 2rem;
+    align-self: start;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    width: 16rem;
+    overflow: hidden;
+
+    border-radius: 100%;
+    padding: 2rem;
+
+    background-color: white;
+
+    &.found {
+      width: 10rem;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

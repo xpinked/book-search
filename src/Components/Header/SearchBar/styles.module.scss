@@ -1,0 +1,42 @@
+@import '../../../sass/_mixins.scss';
+
+.searchArea {
+  background-color: #1e2a47;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  .searchbar {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    width: 40rem;
+
+    @include respond('phone') {
+      width: min(65vw, 40rem);
+    }
+
+    @include respond('slim-phone') {
+      width: 85vw;
+    }
+
+    height: auto;
+
+    .textSearch {
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.6rem;
+      caret-color: white;
+      color: white;
+      font-size: 1.4rem;
+      &::placeholder {
+        color: white;
+      }
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+}

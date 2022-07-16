@@ -1,0 +1,7 @@
+/* The component style is inserted here. */
+.button {
+  cursor: pointer;
+  &:hover {
+    color: #0a0b25;
+  }
+}

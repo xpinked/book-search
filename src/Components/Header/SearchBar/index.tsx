@@ -1,0 +1,73 @@
+import { ReactNode, useCallback, useState } from 'react';
+
+import styles from './styles.module.scss';
+import searchIcon from '../../../assets/searchsvg.svg';
+import Search from '../../Buttons/Search';
+import { BooksResults } from '../../Books';
+
+interface SearchBarProps {
+  children: ReactNode;
+  handlers: {
+    setBooks: React.Dispatch<any>;
+    setLoading: React.Dispatch<any>;
+    setLoaded: React.Dispatch<any>;
+  };
+}
+
+function SearchBar({ children, handlers }: SearchBarProps) {
+  const [query, setQuery] = useState('');
+
+  const searchHandler: React.ReactEventHandler<Element> = useCallback(
+    async (event) => {
+      event.preventDefault();
+      try {
+        if (query.length === 0) {
+          throw Error('Please provide a search query');
+        }
+
+        handlers.setLoading(true);
+
+        const res = await fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=${query}`
+        );
+
+        const books = (await res.json()) as BooksResults;
+
+        if (books) {
+          handlers.setBooks(books);
+        }
+
+        handlers.setLoaded(true);
+        handlers.setLoading(false);
+      } catch (err: any) {
+        console.error(err);
+      }
+    },
+    [handlers, query]
+  );
+
+  return (
+    <>
+      <div className={styles.searchArea}>
+        <div className={styles.searchbar}>
+          <img src={searchIcon} alt=""></img>
+          <input
+            placeholder="Search Book"
+            type="text"
+            className={styles.textSearch}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                searchHandler(event);
+              }
+            }}
+            onInput={(event) => setQuery(event.currentTarget?.value)}
+          ></input>
+          {children}
+          <Search handler={searchHandler}></Search>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default SearchBar;
