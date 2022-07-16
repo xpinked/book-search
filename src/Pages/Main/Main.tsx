@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import styles from './styles.module.scss';
 
-import Books, { BooksResults } from '../../Components/Books';
-import Header from '../../Components/Header';
-import Spinner from '../../Components/Spinner';
+import Books, { BooksResults } from '../../Components/Books/Books';
+import Header from '../../Components/Header/Header';
+import Spinner from '../../Components/Spinner/Spinner';
 
 function Main() {
   const [books, setBooks] = useState({} as BooksResults);

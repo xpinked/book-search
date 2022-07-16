@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Book from './Book';
+import Book from './Book/Book';
 
 import styles from './styles.module.scss';
 import './styles.module.scss';
@@ -18,7 +18,7 @@ interface BooksProps {
 
 function Books({ children, books }: BooksProps) {
   return (
-    <div id="scrollbar" className={styles.books}>
+    <div className={`${styles.books} scrollbar`}>
       {books.items?.slice(0, 10).map((book) => (
         <div className={styles.bookWrapper} key={book?.id}>
           <Book book={book}></Book>

@@ -2,15 +2,15 @@ import { ReactNode, useCallback, useState } from 'react';
 
 import styles from './styles.module.scss';
 import searchIcon from '../../../assets/searchsvg.svg';
-import Search from '../../Buttons/Search';
-import { BooksResults } from '../../Books';
+import Search from '../../Buttons/Search/Search';
+import { BooksResults } from '../../Books/Books';
 
 interface SearchBarProps {
   children: ReactNode;
   handlers: {
-    setBooks: React.Dispatch<any>;
-    setLoading: React.Dispatch<any>;
-    setLoaded: React.Dispatch<any>;
+    setBooks: React.Dispatch<React.SetStateAction<BooksResults>>;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
   };
 }
 

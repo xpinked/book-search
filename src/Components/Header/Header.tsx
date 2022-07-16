@@ -1,15 +1,15 @@
-import { BooksResults } from '../Books';
+import { BooksResults } from '../Books/Books';
 import logo from '../../assets/logo.png';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar/SearchBar';
 
 import styles from './styles.module.scss';
 
 interface HeaderProps {
   books: BooksResults;
   handlers: {
-    setBooks: React.Dispatch<any>;
-    setLoading: React.Dispatch<any>;
-    setLoaded: React.Dispatch<any>;
+    setBooks: React.Dispatch<React.SetStateAction<BooksResults>>;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
   };
 }
 
