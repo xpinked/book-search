@@ -8,7 +8,9 @@ interface BookProps {
 
 function Book({ book }: BookProps) {
   const book_image =
-    book?.volumeInfo.imageLinks?.smallThumbnail || book_placeholder;
+    book?.volumeInfo.imageLinks?.thumbnail ||
+    book?.volumeInfo.imageLinks?.smallThumbnail ||
+    book_placeholder;
 
   const book_description = book.volumeInfo.description || 'No description';
 

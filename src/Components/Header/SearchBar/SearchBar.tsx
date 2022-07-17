@@ -25,6 +25,7 @@ function SearchBar({ children, handlers }: SearchBarProps) {
           throw Error('Please provide a search query');
         }
 
+        handlers.setLoaded(false);
         handlers.setLoading(true);
 
         const res = await fetch(
