@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import Books, { BooksResults } from '../../Components/Books/Books';
 import Header from '../../Components/Header/Header';
 import Spinner from '../../Components/Spinner/Spinner';
+import NotFound from '../../Components/NotFound/NotFound';
 
 function Main() {
   const [books, setBooks] = useState({} as BooksResults);
@@ -26,7 +27,7 @@ function Main() {
       >
         <Header handlers={handlers} books={books}></Header>
         {loading && <Spinner></Spinner>}
-        {loaded && books?.totalItems <= 0 && <h1>{`No Books Found`}</h1>}
+        {loaded && books?.totalItems <= 0 && <NotFound />}
         {loaded && !loading && books?.totalItems > 0 && (
           <Books books={books}>{}</Books>
         )}

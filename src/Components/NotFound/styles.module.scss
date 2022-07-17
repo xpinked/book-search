@@ -1,0 +1,21 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem;
+
+  .errorMsg {
+    font-size: 2rem;
+  }
+
+  .imageWrapper {
+    width: 12rem;
+    height: min-content;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
