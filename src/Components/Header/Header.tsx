@@ -1,6 +1,6 @@
 import { BooksResults } from '../Books/Books';
 import logo from '../../assets/logo.png';
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 
 import styles from './styles.module.scss';
 

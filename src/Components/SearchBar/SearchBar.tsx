@@ -1,9 +1,9 @@
 import { ReactNode, useCallback, useState } from 'react';
 
 import styles from './styles.module.scss';
-import searchIcon from '../../../assets/searchsvg.svg';
-import Search from '../../Buttons/Search/Search';
-import { BooksResults } from '../../Books/Books';
+import searchIcon from '../../assets/searchsvg.svg';
+import Search from '../Buttons/Search/Search';
+import { BooksResults } from '../Books/Books';
 
 interface SearchBarProps {
   children: ReactNode;
@@ -29,7 +29,7 @@ function SearchBar({ children, handlers }: SearchBarProps) {
         handlers.setLoading(true);
 
         const res = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${query}`
+          `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=10&printType=books`
         );
 
         const books = (await res.json()) as BooksResults;

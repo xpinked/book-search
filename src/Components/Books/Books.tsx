@@ -19,7 +19,7 @@ interface BooksProps {
 function Books({ children, books }: BooksProps) {
   return (
     <div className={`${styles.books} scrollbar`}>
-      {books.items?.slice(0, 10).map((book) => (
+      {books.items?.map((book) => (
         <div className={styles.bookWrapper} key={book?.id}>
           <Book book={book}></Book>
         </div>
